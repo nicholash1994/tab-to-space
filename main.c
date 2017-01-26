@@ -21,7 +21,7 @@ void detab_file(const char* filename, const int s_num);
 int main(int argc, char** argv) {
 	int s_num; // number of spaces
 
-    //  these if statements process the command-line arguments
+	//  these if statements process the command-line arguments
 	if (argc == 1 || argc == 2) {
 		print_usage_err();
 		return -1;
@@ -73,7 +73,7 @@ void detab_string(const char* input_string, const int s_num) {
 void detab_file(const char* filename, const int s_num) {
 	FILE* file;
 	char in_buffer[32];
-    //char* out_buffer = (char*)malloc(s_num*32*sizeof(char));
+	//char* out_buffer = (char*)malloc(s_num*32*sizeof(char));
 	int i, j, bytes;
 
 	if ((file = fopen(filename, "r")) == NULL) {
