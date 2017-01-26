@@ -41,8 +41,9 @@ int main(int argc, char** argv) {
 
 void print_usage_err() {
 	printf("Usage: ./tab-to-space n string\n");
-	printf("  OR   ./tab-to-space n -f filename\n\n");
-	printf("Example: ./tab-to-space n \"This is a string\t with a tab.\"\n");
+	printf("  OR   ./tab-to-space n -f filename\n");
+	printf("    where n is the number of spaces to replace each tab with.\n\n");
+	printf("Example: ./tab-to-space 2 \"This is a string\t with a tab.\"\n");
 }
 
 void detab_string(const char* input_string, const int s_num) {
