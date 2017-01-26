@@ -6,9 +6,12 @@
     This program takes in a string as input, and outputs a string where
     the tabs are replaced by a specified number of spaces. The first argument
     to the program should be the number of spaces to replace each tab with.
-    The second argument should be the input string.
+    The second argument should be the input string. If more than 2 arguments
+    are given, the first will be used as the number of spaces per tab, the
+    second will be used as the input string, and the rest of the arguments will
+    be ignored.
 
-    Example: Detab 4 "Detab this    string"
+    Example: tab-to-space 4 "Detab this    string"
 */
 
 int main(int argc, char** argv) {
@@ -18,10 +21,9 @@ int main(int argc, char** argv) {
     char* input_string;
     char* output_string;
 
-    // DEBUG!!!!
-    //s_num = 4;
     if (argc == 1) {
-        printf("Error: no arguments given!\n");
+        printf("Usage: ./tab-to-space n string\n");
+        printf("Example: ./tab-to-space n \"This is a string\t with a tab.\"\n");
         return -1;
     }
     else if (argc == 2) {
@@ -32,7 +34,7 @@ int main(int argc, char** argv) {
     else {
         input_string = argv[2];
         s_num = atoi(argv[1]);
-        if (s_num >= 8) {
+        if (s_num > 8) {
             printf("Error: Number of tabs cannot exceed 8!\n");
             return -1;
         }
@@ -41,9 +43,6 @@ int main(int argc, char** argv) {
         printf("Error: the number of spaces must be positive!\n");
         return -1;
     }
-    // *** THESE TWO LINES ARE ONLY FOR DEBUGGING PURPOSES
-    //input_string = "This\tis a string with tabs.\tPlease replace them with spaces.\tThank you!\n";
-    //len = strlen(input_string);
 
     output_string = (char*)malloc((s_num*len+1)*sizeof(char));
 
